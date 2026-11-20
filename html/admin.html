@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Urban Bistro</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/admin.css">
+    <link href="https://fonts.cdnfonts.com/css/gokart-bubble" rel="stylesheet">
+</head>
+<body>
+    <header class="encabezado" role="banner">
+        <div class="brand">
+            <img class="Logo" src="../img/logo.png" alt="Logo de Urban Bistro">
+            <div class="brand-copy">
+                <h1>Urban Bistro</h1>
+                <p>Restaurante &amp; cocina urbana</p>
+            </div>
+        </div>
+        <nav class="menu" aria-label="Menú principal">
+            <a class="menu-btn" href="paginaprincipal.html">Inicio</a>
+            <a class="menu-btn" href="articulos.html">Menú</a>
+            <a class="menu-btn" href="admin.html" aria-current="page">Admin</a>
+        </nav>
+    </header>
+
+    <div class="main-content">
+        <div class="section">
+            <h2>Panel de administración</h2>
+            <p>Gestiona los platillos del menú, controla la disponibilidad y administra el contenido del sitio.</p>
+
+            <div id="admin-login-card" class="auth-card">
+                <h3>Acceso exclusivo</h3>
+                <p>Inicia sesión con tu cuenta para entrar al CRUD.</p>
+
+                <form id="adminLoginForm" class="auth-form">
+                    <label for="adminLoginUser">Usuario</label>
+                    <input id="adminLoginUser" type="text" placeholder="Tu usuario" required>
+
+                    <label for="adminLoginPassword">Contraseña</label>
+                    <input id="adminLoginPassword" type="password" placeholder="Tu contraseña" required>
+
+                    <button type="submit">Ingresar</button>
+                </form>
+
+                <p id="adminAuthMessage" class="message"></p>
+            </div>
+
+            <div id="admin-dashboard" class="admin-dashboard" style="display:none;">
+                <div class="admin-header">
+                    <h3>CRUD del menú</h3>
+                    <button id="logoutAdminBtn" type="button" class="btn-vaciar">Cerrar sesión</button>
+                </div>
+
+                <div class="admin-grid">
+                    <form id="productForm" class="admin-card">
+                        <input type="hidden" id="productId">
+                        <h4>Agregar o editar platillo</h4>
+
+                        <label for="productName">Nombre</label>
+                        <input id="productName" type="text" required>
+
+                        <label for="productCategory">Categoría</label>
+                        <select id="productCategory" required>
+                            <option value="Entradas">Entradas</option>
+                            <option value="Platos Fuertes">Platos Fuertes</option>
+                            <option value="Postres">Postres</option>
+                            <option value="Bebidas">Bebidas</option>
+                        </select>
+
+                        <label for="productPrice">Precio</label>
+                        <input id="productPrice" type="number" min="0" step="0.01" required>
+
+                        <label for="productStock">Porciones disponibles</label>
+                        <input id="productStock" type="number" min="0" required>
+
+                        <label for="productDescription">Descripción</label>
+                        <textarea id="productDescription" rows="3" required></textarea>
+
+                        <label for="productImage">URL o nombre de imagen (opcional)</label>
+                        <input id="productImage" type="text" placeholder="../img/platillo.jpg">
+
+                        <img id="productImagePreview" class="admin-product-image" src="../img/entrada.jpg" alt="Vista previa del platillo">
+
+                        <button type="submit">Guardar platillo</button>
+                        <button type="button" id="cancelEditBtn" class="secondary-btn">Cancelar</button>
+                    </form>
+
+                    <div class="admin-card">
+                        <h4>Lista de platillos</h4>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Categoría</th>
+                                    <th>Precio</th>
+                                    <th>Disp.</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="productsTableBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/admin.js"></script>
+</body>
+</html>

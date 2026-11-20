@@ -1,0 +1,218 @@
+.main-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 28px 20px 60px;
+}
+
+.articulos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 24px;
+    margin-top: 20px;
+}
+
+.articulo-item {
+    position: relative;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 18px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(34, 30, 20, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.articulo-item::before {
+    content: '';
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--bg-main);
+    border: 2px solid var(--gold);
+}
+
+.articulo-item:hover {
+    transform: translateY(-6px) rotate(-0.6deg);
+    box-shadow: 0 14px 26px rgba(34, 30, 20, 0.12);
+    border-color: var(--gold);
+}
+
+.articulo-imagen {
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 8px;
+    background-color: var(--bg-main);
+    margin-bottom: 15px;
+}
+
+.articulo-imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.articulo-item:hover .articulo-imagen img {
+    transform: scale(1.08);
+}
+
+.articulo-item h3 {
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 18px;
+    margin: 10px 0;
+    color: var(--text-dark);
+}
+
+.articulo-item p {
+    font-size: 14px;
+    color: var(--text-gray);
+    margin: 0 0 12px 0;
+}
+
+.precio {
+    display: inline-block;
+    align-self: center;
+    font-family: var(--font-tag);
+    background: var(--primary-dark);
+    color: var(--gold);
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    padding: 6px 14px;
+    border-radius: 999px;
+    margin: 10px 0;
+}
+
+.btn-carrito {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-weight: 600;
+    width: 100%;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-carrito:hover {
+    background-color: var(--primary-dark);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.carrito-seccion {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 18px;
+    padding: 25px;
+    margin-top: 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+}
+
+.carrito-seccion h3 {
+    margin-top: 0;
+    font-size: 22px;
+}
+
+.carrito-seccion ul {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
+}
+
+.carrito-seccion li {
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--font-tag);
+    font-size: 14px;
+}
+
+.total-carrito {
+    font-family: var(--font-tag);
+    font-size: 20px;
+    font-weight: bold;
+    text-align: right;
+    margin: 15px 0;
+    border-top: 2px solid var(--border-color);
+    padding-top: 10px;
+}
+
+.btn-vaciar {
+    background-color: var(--accent-red);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    margin-bottom: 12px;
+}
+
+.btn-vaciar:hover {
+    background-color: #8f2e25;
+}
+
+.checkout-section {
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 12px;
+    background-color: var(--bg-main);
+    border: 1px solid var(--border-color);
+}
+
+.checkout-section input,
+.checkout-section select {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0 15px 0;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    box-sizing: border-box;
+}
+
+.invoice-preview {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: white;
+    border: 2px solid var(--primary);
+    border-radius: 10px;
+}
+
+@media (max-width: 700px) {
+    .articulos-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .articulo-item {
+        padding: 14px;
+    }
+
+    .articulo-imagen {
+        height: 140px;
+    }
+
+    .carrito-seccion {
+        padding: 18px;
+    }
+}
+
+@media (max-width: 430px) {
+    .articulos-grid {
+        grid-template-columns: 1fr;
+    }
+}
